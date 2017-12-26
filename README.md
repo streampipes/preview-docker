@@ -52,5 +52,5 @@ Check our developer guide at [https://docs.streampipes.org/developer_guide/intro
 
 ### Feedback
 
-We'd love to hear your feedback! Contact us at [feedback@streampipes.org](mailto:feedback@streampipes.org)
+We'd love to hear your feedback! Contact us at [mail.streampipes@gmail.com](mailto:mail.streampipes@gmail.com)
 
