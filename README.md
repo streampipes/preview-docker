@@ -1,3 +1,5 @@
+** Note: If you plan to run the docker-compose file directly without reading the really good [https://docs.streampipes.org/quick_start/installation](installation guide) first (;-)), replace the placeholders `### TODO ADD HOSTNAME HERE ###` in the compose file before starting. 
+
 # StreamPipes
 
 StreamPipes enables flexible modeling of stream processing pipelines by providing a graphical modeling editor on top of existing stream processing frameworks.

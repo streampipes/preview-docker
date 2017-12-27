@@ -46,7 +46,7 @@ services:
       spnet:
    
   backend:
-    image: streampipes/ce/backend:0.50.0
+    image: streampipes/backend:0.50.1
     depends_on:
       - "consul"
     ports:
@@ -58,7 +58,7 @@ services:
       spnet:
 
   elasticsearch:
-    image: streampipes/services/elasticsearch:0.50.0
+    image: streampipes/elasticsearch
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -79,7 +79,7 @@ services:
       spnet:
 
   activemq:
-    image: streampipes/services/activemq:0.50.0
+    image: streampipes/activemq
     ports:
       - "61616:61616"
       - "61614:61614"
@@ -97,7 +97,7 @@ services:
       spnet:
 
   jobmanager:
-    image: streampipes/services/flink:0.50.0
+    image: streampipes/flink
     ports:
       - "8081:8099"
     command: jobmanager
@@ -105,7 +105,7 @@ services:
       spnet:
 
   taskmanager:
-    image: streampipes/services/flink:0.50.0
+    image: streampipes/flink
     command: taskmanager
     environment:
       - FLINK_NUM_SLOTS=20
@@ -113,7 +113,7 @@ services:
       spnet:
 
   nginx:
-    image: streampipes/ui:0.50.0
+    image: streampipes/ui:0.5.0
     ports:
       - "80:80"
     depends_on:
@@ -122,7 +122,7 @@ services:
       spnet:
   
   pe-examples-sources:
-    image: streampipes/pe-examples-sources:0.50.2
+    image: streampipes/pe-examples-sources:0.50.5
     depends_on:
       - "consul"
     ports:
@@ -131,7 +131,7 @@ services:
       spnet:
 
   pe-examples-flink:
-    image: streampipes/pe-examples-flink:0.50.2
+    image: streampipes/pe-examples-flink:0.50.0
     depends_on:
       - "consul"
     ports:
@@ -140,7 +140,7 @@ services:
       spnet:
 
   pe-examples-jvm:
-    image: streampipes/pe-examples-jvm:0.50.2
+    image: streampipes/pe-examples-jvm:0.50.0
     depends_on:
       - "consul"
     environment:
