@@ -97,7 +97,7 @@ services:
       spnet:
 
   jobmanager:
-    image: streampipes/flink
+    image: streampipes/flink:1.4
     ports:
       - "8081:8099"
     command: jobmanager
@@ -105,7 +105,7 @@ services:
       spnet:
 
   taskmanager:
-    image: streampipes/flink
+    image: streampipes/flink:1.4
     command: taskmanager
     environment:
       - FLINK_NUM_SLOTS=20
