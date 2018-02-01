@@ -34,7 +34,7 @@ services:
       spnet:
 
   kafka:
-    image: wurstmeister/kafka:0.10.0.1
+    image: wurstmeister/kafka:1.0.0
     ports:
       - "9092:9092"
     environment:
@@ -46,7 +46,7 @@ services:
       spnet:
    
   backend:
-    image: streampipes/backend:0.50.1
+    image: streampipes/backend:0.51.1
     depends_on:
       - "consul"
     ports:
@@ -122,7 +122,7 @@ services:
       spnet:
   
   pe-examples-sources:
-    image: streampipes/pe-examples-sources:0.50.5
+    image: streampipes/pe-examples-sources:0.51.1
     depends_on:
       - "consul"
     ports:
@@ -131,7 +131,7 @@ services:
       spnet:
 
   pe-examples-flink:
-    image: streampipes/pe-examples-flink:0.50.0
+    image: streampipes/pe-examples-flink:0.51.1
     depends_on:
       - "consul"
     ports:
@@ -140,7 +140,7 @@ services:
       spnet:
 
   pe-examples-jvm:
-    image: streampipes/pe-examples-jvm:0.50.0
+    image: streampipes/pe-examples-jvm:0.51.1
     depends_on:
       - "consul"
     environment:
