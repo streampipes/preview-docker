@@ -131,7 +131,7 @@ services:
       spnet:
 
   pe-examples-flink:
-    image: streampipes/pe-examples-flink:0.51.1
+    image: streampipes/pe-examples-flink:0.51.2
     depends_on:
       - "consul"
     ports:
