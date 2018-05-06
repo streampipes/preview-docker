@@ -1,5 +1,56 @@
 version: "2"
 services:
+
+  backend:
+    image: streampipes/backend:0.51.1
+    depends_on:
+      - "consul"
+#    ports:
+#      - "8030:8030"
+    volumes:
+      - ./config:/root/.streampipes
+      - ./config/RDF4J:/root/.RDF4J
+    networks:
+      spnet:
+
+  nginx:
+    image: streampipes/ui:0.5.0
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      spnet:
+
+  pe-examples-sources:
+    image: streampipes/pe-examples-sources:0.51.1
+    depends_on:
+      - "consul"
+#    ports:
+#      - "8098:8090"
+    networks:
+      spnet:
+
+  pe-examples-flink:
+    image: streampipes/pe-examples-flink:0.51.2
+    depends_on:
+      - "consul"
+#    ports:
+#      - "8097:8090"
+    networks:
+      spnet:
+
+  pe-examples-jvm:
+    image: streampipes/pe-examples-jvm:0.51.1
+    depends_on:
+      - "consul"
+    environment:
+      - STREAMPIPES_HOST=###TODO ADD HOSTNAME HERE ###
+#    ports:
+#      - "8096:8090"
+    networks:
+      spnet:
+
   consul:
     image: consul
     environment:
@@ -19,9 +70,9 @@ services:
       - -ui
     volumes:
       - ./config/consul:/consul/data
-    ports:
-      - "8500:8500"
-      - "8600:8600"
+#    ports:
+#      - "8500:8500"
+#      - "8600:8600"
     networks:
       spnet:
         ipv4_address: 172.30.0.9
@@ -35,8 +86,8 @@ services:
 
   kafka:
     image: wurstmeister/kafka:1.0.0
-    ports:
-      - "9092:9092"
+#    ports:
+#      - "9092:9092"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: ###TODO ADD HOSTNAME HERE ### 
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -45,23 +96,11 @@ services:
     networks:
       spnet:
    
-  backend:
-    image: streampipes/backend:0.51.1
-    depends_on:
-      - "consul"
-    ports:
-      - "8030:8030"
-    volumes:
-      - ./config:/root/.streampipes
-      - ./config/RDF4J:/root/.RDF4J
-    networks:
-      spnet:
-
   elasticsearch:
     image: streampipes/elasticsearch
-    ports:
-      - "9200:9200"
-      - "9300:9300"
+#    ports:
+#      - "9200:9200"
+#      - "9300:9300"
     volumes:
       - ./config/elasticsearch/data:/usr/share/elasticsearch/data
     networks:
@@ -80,17 +119,17 @@ services:
 
   activemq:
     image: streampipes/activemq
-    ports:
-      - "61616:61616"
-      - "61614:61614"
-      - "8161:8161"
+#    ports:
+#      - "61616:61616"
+#      - "61614:61614"
+#      - "8161:8161"
     networks:
       spnet:
 
   couchdb:
     image: couchdb:2.1.1
-    ports:
-      - "5984:5984"
+#    ports:
+#      - "5984:5984"
     volumes:
       - ./config/couchdb/data:/opt/couchdb/data
     networks:
@@ -98,8 +137,8 @@ services:
 
   jobmanager:
     image: streampipes/flink:1.4
-    ports:
-      - "8081:8099"
+#    ports:
+#      - "8081:8099"
     command: jobmanager
     networks:
       spnet:
@@ -109,44 +148,6 @@ services:
     command: taskmanager
     environment:
       - FLINK_NUM_SLOTS=20
-    networks:
-      spnet:
-
-  nginx:
-    image: streampipes/ui:0.5.0
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
-    networks:
-      spnet:
-  
-  pe-examples-sources:
-    image: streampipes/pe-examples-sources:0.51.1
-    depends_on:
-      - "consul"
-    ports:
-      - "8098:8090"
-    networks:
-      spnet:
-
-  pe-examples-flink:
-    image: streampipes/pe-examples-flink:0.51.2
-    depends_on:
-      - "consul"
-    ports:
-      - "8097:8090"
-    networks:
-      spnet:
-
-  pe-examples-jvm:
-    image: streampipes/pe-examples-jvm:0.51.1
-    depends_on:
-      - "consul"
-    environment:
-      - STREAMPIPES_HOST=###TODO ADD HOSTNAME HERE ###
-    ports:
-      - "8096:8090"
     networks:
       spnet:
 
