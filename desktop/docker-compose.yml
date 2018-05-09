@@ -2,7 +2,7 @@ version: "2"
 services:
 
   backend:
-    image: streampipes/backend:0.55.1
+    image: streampipes/backend:0.55.2
     depends_on:
       - "consul"
     environment:
@@ -16,7 +16,7 @@ services:
       spnet:
 
   nginx:
-    image: streampipes/ui:0.5.1
+    image: streampipes/ui:0.55.2
     ports:
       - "80:80"
     depends_on:
@@ -28,7 +28,7 @@ services:
       spnet:
 
   pe-examples-sources:
-    image: streampipes/pe-examples-sources:0.55.1
+    image: streampipes/pe-examples-sources:0.55.2
     depends_on:
       - "consul"
     environment:
@@ -39,7 +39,7 @@ services:
       spnet:
 
   pe-examples-jvm:
-    image: streampipes/pe-examples-jvm:0.55.1
+    image: streampipes/pe-examples-jvm:0.55.2
     depends_on:
       - "consul"
     environment:
