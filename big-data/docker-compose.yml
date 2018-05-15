@@ -80,7 +80,7 @@ services:
       - -ui
     volumes:
       - ./config/consul:/consul/data
-    ports:
+#    ports:
 #      - "8500:8500"
 #      - "8600:8600"
     networks:
@@ -89,7 +89,7 @@ services:
 
   zookeeper:
     image: wurstmeister/zookeeper
-    ports:
+#    ports:
 #      - "2181:2181"
     networks:
       spnet:
