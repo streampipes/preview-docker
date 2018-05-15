@@ -70,8 +70,8 @@ services:
     volumes:
       - ./config/consul:/consul/data
     ports:
-      - "8500:8500"
-      - "8600:8600"
+#      - "8500:8500"
+#      - "8600:8600"
     networks:
       spnet:
         ipv4_address: 172.30.0.9
@@ -79,7 +79,7 @@ services:
   zookeeper:
     image: wurstmeister/zookeeper
     ports:
-      - "2181:2181"
+#      - "2181:2181"
     networks:
       spnet:
 
