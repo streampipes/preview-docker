@@ -78,7 +78,7 @@ services:
       spnet:
  
   backend:
-    image: streampipes/ce/backend:0.60.1
+    image: streampipes/backend:0.60.1
     depends_on:
       - consul
       - couchdb
@@ -108,7 +108,7 @@ services:
  
  
   connect-master:
-    image: streampipes/ce/streampipes-connect-container:0.60.1
+    image: streampipes/streampipes-connect-container:0.60.1
     depends_on:
       - consul
       - couchdb
@@ -124,7 +124,7 @@ services:
       spnet:
  
   connect-worker:
-    image: streampipes/ce/streampipes-connect-container:0.60.1
+    image: streampipes/streampipes-connect-container:0.60.1
     depends_on:
       - consul
       - couchdb

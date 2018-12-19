@@ -78,7 +78,7 @@ services:
       spnet:
  
   backend:
-    image: streampipes/ce/backend:0.60.1
+    image: streampipes/backend:0.60.1
     depends_on:
       - consul
       - couchdb
@@ -108,7 +108,7 @@ services:
  
  
   connect-master:
-    image: streampipes/ce/streampipes-connect-container:0.60.1
+    image: streampipes/streampipes-connect-container:0.60.1
     depends_on:
       - consul
       - couchdb
@@ -124,7 +124,7 @@ services:
       spnet:
  
   connect-worker:
-    image: streampipes/ce/streampipes-connect-container:0.60.1
+    image: streampipes/streampipes-connect-container:0.60.1
     depends_on:
       - consul
       - couchdb
@@ -150,7 +150,7 @@ services:
       spnet:  
  
   pe-sources-random:
-    image: sources-random-data-generator:0.60.1
+    image: streampipes/sources-random-data-generator:0.60.1
     depends_on:
       - "consul"
 #    ports:
@@ -162,7 +162,7 @@ services:
       spnet:
  
   sources-vehicle-simulator:
-    image: sources-vehicle-simulator:0.60.1 
+    image: streampipes/sources-vehicle-simulator:0.60.1 
     depends_on:
       - "consul"
 #    ports:
@@ -174,7 +174,7 @@ services:
       spnet:
  
   sources-watertank-simulator:
-    image: sources-watertank-simulator:0.60.1
+    image: streampipes/sources-watertank-simulator:0.60.1
     depends_on:
       - "consul"
 #    ports:
@@ -186,7 +186,7 @@ services:
       spnet:
  
   processors-transformation-jvm:
-    image: processors-transformation-jvm:0.60.1
+    image: streampipes/processors-transformation-jvm:0.60.1
     depends_on:
       - "consul"
 #    ports:
@@ -198,7 +198,7 @@ services:
       spnet:
  
   processors-filters-jvm:
-    image: processors-filters-jvm:0.60.1 
+    image: streampipes/processors-filters-jvm:0.60.1 
     depends_on:
       - "consul"
 #    ports:
@@ -210,7 +210,7 @@ services:
       spnet:
  
   sinks-databases-jvm:
-    image: sinks-databases-jvm:0.60.1 
+    image: streampipes/sinks-databases-jvm:0.60.1 
     depends_on:
       - "consul"
 #    ports:
@@ -222,7 +222,7 @@ services:
       spnet:
  
   sinks-internal-jvm:
-    image: sinks-internal-jvm:0.60.1
+    image: streampipes/sinks-internal-jvm:0.60.1
     depends_on:
       - "consul"
 #    ports:
@@ -236,7 +236,7 @@ services:
       spnet:
  
   sinks-notifications-jvm:
-    image: sinks-notifications-jvm:0.60.1
+    image: streampipes/sinks-notifications-jvm:0.60.1
     depends_on:
       - "consul"
 #    ports:
