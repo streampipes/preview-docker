@@ -1,6 +1,8 @@
 # StreamPipes
 
-**Note: If you plan to run the docker-compose file directly without reading the really good [installation guide](https://docs.streampipes.org/quick_start/installation) first (;-)), replace the placeholders `### TODO ADD HOSTNAME HERE ###` in the compose file with the hostname of your machine before starting.** 
+**Use the installer at [https://www.github.com/streampipes/streampipes-installer](https://www.github.com/streampipes/streampipes-installer) to install the latest version of StreamPipes!**
+
+**Note: If you plan to run the docker-compose file directly without reading the really good [installation guide](https://docs.streampipes.org/docs/user-guide-installation) first (;-)), replace the placeholders `### TODO ADD HOSTNAME HERE ###` in the compose file with the hostname of your machine before starting.** 
 
 StreamPipes enables flexible modeling of stream processing pipelines by providing a graphical modeling editor on top of existing stream processing frameworks.
 
@@ -10,18 +12,6 @@ toolbox of data sources, data processors and data sinks.
 Learn more about StreamPipes at [https://www.streampipes.org/](https://www.streampipes.org/)
 
 Read the full documentation at [https://docs.streampipes.org](https://docs.streampipes.org)
-
-### Getting Started
-
-StreamPipes will be fully open source in early 2018.
-
-Until then, you can try StreamPipes using our pre-built Docker images:
-
-* Download the `docker-compose.yml` file from [https://www.github.com/streampipes/preview-docker](https://www.github.com/streampipes/preview-docker)
-* Follow the installation guide at [https://docs.streampipes.org/quick_start/installation](https://docs.streampipes.org/quick_start/installation)
-* Check the [tour](https://docs.streampipes.org/user_guide/features) and build your first pipeline!
-
-A recent version of Docker and Docker-Compose is required.
 
 **Contents of the `docker-compose` files**
 
@@ -40,19 +30,16 @@ message brokers in a single pipeline, but Kafka is the default. The communicatio
 an endpoint for the websocket connections required by the real-time dashboard of the StreamPipes UI.
 * Apache CouchDB. CouchDB is the main database for StreamPipes data that needs to be persisted such as pipelines, users and visualizations created in the dashboard.
 * Apache Flink. This service sets up a sample flink cluster with one jobmanager and one taskmanager. Although this cluster can be used for testing, it is not recommended for production use.
-* PE Examples Sources. Contains example data streams as described in [https://www.github.com/streampipes/examples-sources](https://www.github.com/streampipes/examples-sources)   
-* PE Examples Flink. Contains example data processors and data sinks using the Apache Flink Wrapper as described in [https://www.github.com/streampipes/examples-flink](https://www.github.com/streampipes/examples-flink)   
-* PE Examples JVM. Contains example data processors and data sinks running directly on the JVM as described in 
-[https://www.github.com/streampipes/examples-jvm](https://www.github.com/streampipes/examples-jvm)   
+* StreamPipes pipeline elements from [https://www.github.com/streampipes/streampipes-pipeline-elements](https://www.github.com/streampipes/streampipes-pipeline-elements)
                              
          
 ### Extending StreamPipes
 
 You can easily add your own data streams, processors or sinks. 
 
-Check our developer guide at [https://docs.streampipes.org/developer_guide/introduction](https://docs.streampipes.org/developer_guide/introduction)
+Check our developer guide at [https://docs.streampipes.org/docs/dev-guide-introduction](https://docs.streampipes.org/docs/dev-guide-introduction)
 
 ### Feedback
 
-We'd love to hear your feedback! Contact us at [mail.streampipes@gmail.com](mailto:mail.streampipes@gmail.com)
+We'd love to hear your feedback! Contact us at [feedback@streampipes.org](mailto:feedback@streampipes.org)
 
