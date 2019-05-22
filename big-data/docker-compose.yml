@@ -78,7 +78,7 @@ services:
       spnet:
  
   backend:
-    image: streampipes/backend:0.61.0
+    image: streampipes/backend:0.62.0
     depends_on:
       - consul
       - couchdb
@@ -89,11 +89,12 @@ services:
     volumes:
       - ./config:/root/.streampipes
       - ./config/RDF4J:/root/.RDF4J
+      - ./config/assets:/streampipes-assets
     networks:
       spnet:
  
   nginx:
-    image: streampipes/ui:0.61.0
+    image: streampipes/ui:0.62.0
     ports:
       - "80:80"
     depends_on:
@@ -108,7 +109,7 @@ services:
  
  
   connect-master:
-    image: streampipes/streampipes-connect-container:0.61.0
+    image: streampipes/streampipes-connect-container:0.62.0
     depends_on:
       - consul
       - couchdb
@@ -124,7 +125,7 @@ services:
       spnet:
  
   connect-worker:
-    image: streampipes/streampipes-connect-container:0.61.0
+    image: streampipes/streampipes-connect-container:0.62.0
     depends_on:
       - consul
       - couchdb
@@ -166,7 +167,7 @@ services:
       spnet:  
  
   pe-sources-random:
-    image: streampipes/sources-random-data-generator:0.61.0
+    image: streampipes/sources-random-data-generator:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -178,7 +179,7 @@ services:
       spnet:
  
   sources-vehicle-simulator:
-    image: streampipes/sources-vehicle-simulator:0.61.0
+    image: streampipes/sources-vehicle-simulator:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -190,7 +191,7 @@ services:
       spnet:
  
   sources-watertank-simulator:
-    image: streampipes/sources-watertank-simulator:0.61.0
+    image: streampipes/sources-watertank-simulator:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -202,7 +203,7 @@ services:
       spnet:
  
   processors-transformation-jvm:
-    image: streampipes/processors-transformation-jvm:0.61.0
+    image: streampipes/processors-transformation-jvm:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -214,7 +215,19 @@ services:
       spnet:
  
   processors-filters-jvm:
-    image: streampipes/processors-filters-jvm:0.61.0
+    image: streampipes/processors-filters-jvm:0.62.0
+    depends_on:
+      - "consul"
+#    ports:
+#      - "8098:8090"
+    environment:
+      - SP_ICON_HOST=###TODO ADD HOSTNAME HERE ###
+      - SP_KAFKA_HOST=###TODO ADD HOSTNAME HERE ###
+    networks:
+      spnet:
+      
+  processors-filters-siddhi:
+    image: streampipes/processors-filters-siddhi:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -226,7 +239,7 @@ services:
       spnet:
  
   sinks-databases-jvm:
-    image: streampipes/sinks-databases-jvm:0.61.0
+    image: streampipes/sinks-databases-jvm:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -238,7 +251,7 @@ services:
       spnet:
  
   sinks-internal-jvm:
-    image: streampipes/sinks-internal-jvm:0.61.0
+    image: streampipes/sinks-internal-jvm:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -252,7 +265,7 @@ services:
       spnet:
  
   sinks-notifications-jvm:
-    image: streampipes/sinks-notifications-jvm:0.61.0
+    image: streampipes/sinks-notifications-jvm:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -293,7 +306,7 @@ services:
       spnet:
  
   processors-aggregation-flink:
-    image: streampipes/processors-aggregation-flink:0.61.0
+    image: streampipes/processors-aggregation-flink:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -305,7 +318,7 @@ services:
       spnet:
  
   processors-enricher-flink:
-    image: streampipes/processors-enricher-flink:0.61.0
+    image: streampipes/processors-enricher-flink:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -317,7 +330,7 @@ services:
       spnet:
  
   processors-geo-jvm:
-    image: streampipes/processors-geo-jvm:0.61.0
+    image: streampipes/processors-geo-jvm:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -329,7 +342,7 @@ services:
       spnet:
  
   processors-image-processing-jvm:
-    image: streampipes/processors-image-processing-jvm:0.61.0
+    image: streampipes/processors-image-processing-jvm:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -341,7 +354,7 @@ services:
       spnet:
  
   processors-pattern-detection-flink:
-    image: streampipes/processors-pattern-detection-flink:0.61.0
+    image: streampipes/processors-pattern-detection-flink:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -353,7 +366,19 @@ services:
       spnet:
  
   processors-statistics-flink:
-    image: streampipes/processors-statistics-flink:0.61.0
+    image: streampipes/processors-statistics-flink:0.62.0
+    depends_on:
+      - "consul"
+#    ports:
+#      - "8098:8090"
+    environment:
+      - SP_ICON_HOST=###TODO ADD HOSTNAME HERE ###
+      - SP_KAFKA_HOST=###TODO ADD HOSTNAME HERE ###
+    networks:
+      spnet:
+      
+  processors-text-mining-flink:
+    image: streampipes/processors-text-mining-flink:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -365,7 +390,7 @@ services:
       spnet:
  
   processors-transformation-flink:
-    image: streampipes/processors-transformation-flink:0.61.0
+    image: streampipes/processors-transformation-flink:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -377,7 +402,7 @@ services:
       spnet:
  
   sinks-brokers-jvm:
-    image: streampipes/sinks-brokers-jvm:0.61.0
+    image: streampipes/sinks-brokers-jvm:0.62.0
     depends_on:
       - "consul"
 #    ports:
@@ -389,7 +414,7 @@ services:
       spnet:
  
   sinks-databases-flink:
-    image: streampipes/sinks-databases-flink:0.61.0
+    image: streampipes/sinks-databases-flink:0.62.0
     depends_on:
       - "consul"
 #    ports:
