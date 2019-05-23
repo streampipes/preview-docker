@@ -247,17 +247,17 @@ services:
     networks:
       spnet:
       
-  processors-filters-siddhi:
-    image: streampipes/processors-filters-siddhi:0.62.0
-    depends_on:
-      - "consul"
+#  processors-filters-siddhi:
+#    image: streampipes/processors-filters-siddhi:0.62.0
+#    depends_on:
+#      - "consul"
 #    ports:
 #      - "8098:8090"
-    environment:
-      - SP_ICON_HOST=###TODO ADD HOSTNAME HERE ###
-      - SP_KAFKA_HOST=###TODO ADD HOSTNAME HERE ###
-    networks:
-      spnet:
+#    environment:
+#      - SP_ICON_HOST=###TODO ADD HOSTNAME HERE ###
+#      - SP_KAFKA_HOST=###TODO ADD HOSTNAME HERE ###
+#    networks:
+#      spnet:
  
   processors-image-processing-jvm:
     image: streampipes/processors-image-processing-jvm:0.62.0
