@@ -377,17 +377,17 @@ services:
     networks:
       spnet:
       
-  processors-text-mining-flink:
-    image: streampipes/processors-text-mining-flink:0.62.0
-    depends_on:
-      - "consul"
+#  processors-text-mining-flink:
+#    image: streampipes/processors-text-mining-flink:0.62.0
+#    depends_on:
+#      - "consul"
 #    ports:
 #      - "8098:8090"
-    environment:
-      - SP_ICON_HOST=###TODO ADD HOSTNAME HERE ###
-      - SP_KAFKA_HOST=###TODO ADD HOSTNAME HERE ###
-    networks:
-      spnet:
+#    environment:
+#      - SP_ICON_HOST=###TODO ADD HOSTNAME HERE ###
+#      - SP_KAFKA_HOST=###TODO ADD HOSTNAME HERE ###
+#    networks:
+#      spnet:
  
   processors-transformation-flink:
     image: streampipes/processors-transformation-flink:0.62.0
