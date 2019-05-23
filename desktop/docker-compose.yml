@@ -89,6 +89,7 @@ services:
     volumes:
       - ./config:/root/.streampipes
       - ./config/RDF4J:/root/.RDF4J
+      - ./config/assets:/streampipes-assets
     networks:
       spnet:
  
