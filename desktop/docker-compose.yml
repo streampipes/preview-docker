@@ -120,6 +120,8 @@ services:
       - SP_CONNECT_CONTAINER_HOST=connect-master      
       - SP_CONNECT_CONTAINER_WORKER=connect-worker
       - SP_KAFKA_HOST=###TODO ADD HOSTNAME HERE ###
+    volumes:
+      - connect:/data/
     networks:
       spnet:
  
@@ -135,6 +137,8 @@ services:
       - SP_CONNECT_CONTAINER_HOST=connect-master      
       - SP_CONNECT_CONTAINER_WORKER=connect-worker
       - SP_KAFKA_HOST=###TODO ADD HOSTNAME HERE ###
+    volumes:
+      - connect:/data/
     networks:
       spnet:
  
@@ -283,3 +287,4 @@ networks:
 volumes:
   esdata1:
     driver: local
+  connect:
